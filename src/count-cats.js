@@ -1,6 +1,16 @@
 const CustomError = require("../extensions/custom-error");
 
-module.exports = function countCats(/* matrix */) {
-  throw new CustomError('Not implemented');
-  // remove line with error and write your code here
-};
+module.exports = function countCats(matrix) {
+  //Преобразум вложенные подмассивы в единый массив (Метод flat() возвращает новый массив, в котором все элементы вложенных подмассивов были рекурсивно "подняты" на указанный уровень depth)
+  let arr = matrix.flat();
+  //Введем переменную, обозначающую количество кошек
+  let countCat = 0;
+  //Для каждого элемента массива проверим, сколько раз он содержит кошку и суммируем это количество
+  arr.forEach ((e) => {
+    if (e === "^^"){
+      countCat++;
+    }
+  });
+  // Выводим количество кошек 
+  return countCat;
+}
